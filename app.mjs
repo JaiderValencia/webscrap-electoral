@@ -55,6 +55,10 @@ app.get('/', validations, handlingErrors, async (req, res) => {
     res.status(consultaSisben.error ? 404 : 200).send({ ...consultaSisben })
 })
 
+app.get('/status', validations, handlingErrors, async (req, res) => {    
+    res.send({ status: 'ok' })
+})
+
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port}`)
     console.log(`Network link: http://0.0.0.0:${port}`)
