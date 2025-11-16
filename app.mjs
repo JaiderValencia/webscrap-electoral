@@ -56,5 +56,6 @@ app.get('/', validations, handlingErrors, async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Servidor corriendo en el puerto 3000')
+    console.log(`Servidor corriendo en el puerto ${port}`)
+    console.log(`Network link: http://0.0.0.0:${port}`)
 })
