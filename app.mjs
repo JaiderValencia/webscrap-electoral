@@ -1,4 +1,4 @@
-process.loadEnvFile()
+if (process.env.NODE_ENV !== 'production') process.loadEnvFile()
 
 import express from 'express'
 import rateLimit from 'express-rate-limit'
