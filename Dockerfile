@@ -1,12 +1,11 @@
 # Usar la imagen oficial de Node.js con soporte para Playwright
-FROM node:22-alpine
+FROM node:22-bookworm-slim
 
 # Establecer el directorio de trabajo
 WORKDIR /app
 
 # Instalar dependencias del sistema necesarias para Playwright
 RUN apt-get update && apt-get install -y \
-    # Dependencias básicas de Chromium/WebKit
     libnss3 \
     libnspr4 \
     libatk1.0-0 \
@@ -24,13 +23,11 @@ RUN apt-get update && apt-get install -y \
     libcairo2 \
     libasound2 \
     libatspi2.0-0 \
-    # Dependencias adicionales
     fonts-liberation \
     libappindicator3-1 \
     xdg-utils \
     wget \
     ca-certificates \
-    # Dependencias para WebKit
     libwoff1 \
     libopus0 \
     libwebp7 \
@@ -39,7 +36,7 @@ RUN apt-get update && apt-get install -y \
     libgudev-1.0-0 \
     libsecret-1-0 \
     libhyphen0 \
-    libgdk-pixbuf2.0-0 \
+    libgdk-pixbuf-2.0-0 \
     libegl1 \
     libnotify4 \
     libxslt1.1 \
@@ -49,7 +46,6 @@ RUN apt-get update && apt-get install -y \
     gstreamer1.0-plugins-bad \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
-    # Utilidades
     git \
     && rm -rf /var/lib/apt/lists/*
 
