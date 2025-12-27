@@ -9,7 +9,7 @@ import { consultarCC } from './sisben.mjs'
 const app = express()
 const port = process.env.server_port || 3000
 
-const allowed_origins = ['*']
+const allowed_origins = process.env.allowed_origins ? JSON.parse(process.env.allowed_origins) : ['*']
 
 app.use(cors({
     methods: ['GET'],
